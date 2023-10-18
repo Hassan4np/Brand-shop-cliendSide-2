@@ -7,6 +7,8 @@ import Signup from "../Pages/Signup";
 import Error from "../Pages/Error";
 import AddProduct from "../Pages/AddProduct";
 import MyCard from "../Pages/MyCard";
+import { AddProductRepo } from "../PrivateRepo/AddProductRepo";
+import { MycardPepo } from "../PrivateRepo/MycardPepo";
 
 
   const MyBrowser = createBrowserRouter([
@@ -30,11 +32,11 @@ import MyCard from "../Pages/MyCard";
         },
         {
           path:'addproduct',
-          element:<AddProduct></AddProduct>
+          element:<AddProductRepo><AddProduct></AddProduct></AddProductRepo>,
         },
         {
           path:'/mycard',
-          element:<MyCard></MyCard>
+          element:<MycardPepo><MyCard></MyCard></MycardPepo>,
         }
         
       ]

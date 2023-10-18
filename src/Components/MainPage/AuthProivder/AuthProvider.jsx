@@ -10,14 +10,14 @@ const auth = getAuth(app);
 export const AuthContext = createContext(null);
 
 //mainProjcet---------->
-const AuthProvider = ({ children }) => {
+const AuthProvider = ({children}) => {
     const [user, setuser] = useState({});
     const [loading, setloading] = useState(true)
 
     //Usersignup----------->
     const UserSignup = (email, password) => {
-        setloading(true)
-        return createUserWithEmailAndPassword(auth, email, password);
+        // setloading(true)
+        return createUserWithEmailAndPassword(auth, email, password)
     }
 
     //UserLOgin----------->

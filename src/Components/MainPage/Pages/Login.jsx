@@ -1,32 +1,63 @@
-import { useContext } from 'react';
-import { Link } from 'react-router-dom';
+import { useContext, useState } from 'react';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../AuthProivder/AuthProvider';
-import { app } from '../Firebase/Firebase.config';
-// import { GoogleAuthProvider, getAuth, signInWithPopup } from 'firebase/auth';
-// const auth = getAuth(app);
-// const provider = new GoogleAuthProvider();
+
+import Swal from 'sweetalert2';
 const Login = () => {
-    const { UserGoogleLogin } = useContext(AuthContext);
+    const { UserGoogleLogin, UserLogin } = useContext(AuthContext);
+    const [error, seterror] = useState('');
+    const navegte = useNavigate();
+    const loc = useLocation();
 
     const hendleGoogleLogin = () => {
 
         UserGoogleLogin()
             .then((result) => {
-                console.log(result.user)
+                console.log(result.user);
+                navegte(loc?.state ? loc.state:"/");
             })
             .catch(error => {
                 console.log(error.message)
             })
+    }
+
+    const HendleLOgin = (e) => {
+        e.preventDefault()
+        const form = e.target;
+        const email = form.email.value;
+        const password = form.password.value;
+        seterror('')
+        console.log(email, password)
+        UserLogin(email, password)
+            .then((result) => {
+                console.log(result.user)
+                Swal.fire({
+                    position: 'top-center',
+                    icon: 'success',
+                    title: 'Your have sccessfully login',
+                    showConfirmButton: false,
+                    timer: 1500
+                })
+                navegte(loc?.state ? loc.state:"/");
+
+
+            })
+            .catch(error => {
+                console.log(error.message)
+                seterror(error.message)
+                return;
+            })
+
     }
     return (
         <div>
             <div className='flex justify-center items-center my-14'>
                 <div className="relative flex flex-col rounded-xl bg-transparent bg-clip-border text-gray-700 shadow-none">
                     <h4 className="block font-sans text-2xl font-semibold leading-snug tracking-normal text-blue-gray-900 antialiased text-center">Login</h4>
-                    <form className="mt-8 mb-2 w-80 max-w-screen-lg sm:w-96">
+                    <form className="mt-8 mb-2 w-80 max-w-screen-lg sm:w-96" onSubmit={HendleLOgin}>
                         <div className="mb-4 flex flex-col gap-6">
                             <div className="relative h-11 w-full min-w-[200px]">
-                                <input
+                                <input name='email'
                                     className="peer h-full w-full rounded-md border border-blue-gray-200 border-t-transparent bg-transparent px-3 py-3 font-sans text-sm font-normal text-blue-gray-700 outline outline-0 transition-all placeholder-shown:border placeholder-shown:border-blue-gray-200 placeholder-shown:border-t-blue-gray-200 focus:border-2 focus:border-pink-500 focus:border-t-transparent focus:outline-0 disabled:border-0 disabled:bg-blue-gray-50"
                                     placeHolder="Email"
                                 />
@@ -35,7 +66,7 @@ const Login = () => {
                                 </label>
                             </div>
                             <div className="relative h-11 w-full min-w-[200px]">
-                                <input
+                                <input name='password'
                                     type="password"
                                     className="peer h-full w-full rounded-md border border-blue-gray-200 border-t-transparent bg-transparent px-3 py-3 font-sans text-sm font-normal text-blue-gray-700 outline outline-0 transition-all placeholder-shown:border placeholder-shown:border-blue-gray-200 placeholder-shown:border-t-blue-gray-200 focus:border-2 focus:border-pink-500 focus:border-t-transparent focus:outline-0 disabled:border-0 disabled:bg-blue-gray-50"
                                     placeHolder="Passowrd "
@@ -45,10 +76,10 @@ const Login = () => {
                                 </label>
                             </div>
                         </div>
-                        <p className='mt-5 text-red-600'>error page</p>
-                        <button
-                            className="mt-6 block w-full select-none rounded-lg bg-pink-500 py-3 px-6 text-center align-middle font-sans text-xs font-bold uppercase text-white shadow-md shadow-pink-500/20 transition-all hover:shadow-lg hover:shadow-pink-500/40 focus:opacity-[0.85] focus:shadow-none active:opacity-[0.85] active:shadow-none disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none" type="button" data-ripple-light="true">Login
-                        </button>
+                        {
+                            error && <p className='mt-5 text-red-600'>{error}</p>
+                        }
+                        <input className='text-center w-full btn btn-success' type="submit" value="Login" />
 
                         <p className="mt-4 block text-center font-sans text-base font-normal leading-relaxed text-gray-700 antialiased">
                             Create an account?
