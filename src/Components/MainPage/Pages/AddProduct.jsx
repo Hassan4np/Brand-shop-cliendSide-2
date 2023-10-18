@@ -18,7 +18,7 @@ const AddProduct = () => {
 
     }
     return (
-        <form  onSubmit={hendleaddProduct}>
+        <form  onSubmit={hendleaddProduct} className="p-10">
             <div className="bg-[#F4F3F0] p-5">
                 <h1 className="text-center text-2xl font-bold">Add Product</h1>
                 <div className="md:flex space-x-4">
