@@ -3,9 +3,9 @@ import logo from './../../../assets/logo.jpg'
 
 const Navbar = () => {
     const links=<>
-    <NavLink className='mr-2 btn btn-sm '><li>Home</li></NavLink>
-    <NavLink className='mr-2  btn btn-sm '><li>Add Product</li></NavLink>
-    <NavLink className='  btn btn-sm '><li>My Card</li></NavLink>
+    <NavLink to='/' className='mr-2 btn btn-sm '><li>Home</li></NavLink>
+    <NavLink to='/addproduct' className='mr-2  btn btn-sm '><li>Add Product</li></NavLink>
+    <NavLink to='/mycard' className=' btn btn-sm '><li>My Card</li></NavLink>
     </>
     return (
         <div className="navbar">
@@ -28,6 +28,7 @@ const Navbar = () => {
             <div className="navbar-end">
               
               <NavLink to='/login'><button className="btn  btn-sm" >Login</button></NavLink>
+              <NavLink to='/signup'><button className="btn  btn-sm" >Signup</button></NavLink>
             </div>
         </div>
     );

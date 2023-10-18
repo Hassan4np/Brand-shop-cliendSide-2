@@ -4,16 +4,21 @@ import MainPage from "../MainPage";
 import Home from "../Pages/Home";
 import Login from "../Pages/Login";
 import Signup from "../Pages/Signup";
+import Error from "../Pages/Error";
+import AddProduct from "../Pages/AddProduct";
+import MyCard from "../Pages/MyCard";
 
 
   const MyBrowser = createBrowserRouter([
     {
       path: "/",
       element:<MainPage></MainPage>,
+      errorElement:<Error></Error>,
       children:[
         {
             path:'/',
-            element:<Home></Home>
+            element:<Home></Home>,
+            loader:()=>fetch('./category.json'),
         },
         {
             path:'/login',
@@ -23,6 +28,14 @@ import Signup from "../Pages/Signup";
             path:'/signup',
             element:<Signup></Signup>
         },
+        {
+          path:'addproduct',
+          element:<AddProduct></AddProduct>
+        },
+        {
+          path:'/mycard',
+          element:<MyCard></MyCard>
+        }
         
       ]
     },
