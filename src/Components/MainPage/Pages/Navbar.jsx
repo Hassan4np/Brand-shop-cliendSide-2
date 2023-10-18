@@ -29,6 +29,7 @@ const Navbar = () => {
               
               <NavLink to='/login'><button className="btn  btn-sm" >Login</button></NavLink>
               <NavLink to='/signup'><button className="btn  btn-sm" >Signup</button></NavLink>
+              <button className="btn btn-sm" >Logout</button>
             </div>
         </div>
     );
