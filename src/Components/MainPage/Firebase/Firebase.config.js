@@ -5,12 +5,12 @@ import { initializeApp } from "firebase/app";
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
-    apiKey: "AIzaSyCGfeVsKsnp9xbrjOnGFCNzgK0nhi7z_BI",
-    authDomain: "donation-campain-45e8a.firebaseapp.com",
-    projectId: "donation-campain-45e8a",
-    storageBucket: "donation-campain-45e8a.appspot.com",
-    messagingSenderId: "784754279739",
-    appId: "1:784754279739:web:7902e2c51c998fb541631e"
+    apiKey: "AIzaSyDMZ9PvB8iWyLmAGeNUfdKyKMrnawz1AyY",
+    authDomain: "dinamic-password-react-project.firebaseapp.com",
+    projectId: "dinamic-password-react-project",
+    storageBucket: "dinamic-password-react-project.appspot.com",
+    messagingSenderId: "495784136480",
+    appId: "1:495784136480:web:c09952f87ea17903835145"
 };
 
 // Initialize Firebase
