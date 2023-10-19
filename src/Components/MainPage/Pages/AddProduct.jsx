@@ -1,3 +1,4 @@
+import Swal from "sweetalert2";
 
 const AddProduct = () => {
 
@@ -12,13 +13,36 @@ const AddProduct = () => {
         const categoryitem = form.select.value;
         const photo = form.photo.value;
         const Productdetails = {
-            name, Brand,Price,description,rating,categoryitem, photo
+            name, Brand, Price, description, rating, categoryitem, photo
         }
         console.log(Productdetails)
+        fetch('http://localhost:5000/products', {
+            method: 'POST',
+            headers: {
+                'content-Type': 'application/json',
+            },
+            body: JSON.stringify(Productdetails)
+
+        })
+            .then(res => res.json)
+            .then(data => {
+                console.log(data)
+                if(data.acknowledged){
+                    Swal.fire({
+                        position: 'top-center',
+                        icon: 'success',
+                        title: 'Your work has been saved',
+                        showConfirmButton: false,
+                        timer: 1500
+                      })
+                }
+
+
+            })
 
     }
     return (
-        <form  onSubmit={hendleaddProduct} className="p-10">
+        <form onSubmit={hendleaddProduct} className="p-10">
             <div className="bg-[#F4F3F0] p-5">
                 <h1 className="text-center text-2xl font-bold">Add Product</h1>
                 <div className="md:flex space-x-4">
@@ -64,6 +88,7 @@ const AddProduct = () => {
                         </label>
                         <select className="select select-bordered w-full" name="brand">
                             {/* <option selected>Who shot first?</option> */}
+                            <option disabled selected>Select Product</option>
                             <option>Apple</option>
                             <option>Tecno</option>
                             <option>Sonny</option>
@@ -73,7 +98,7 @@ const AddProduct = () => {
                         </select>
                     </div>
                     <div className="form-control md:w-1/2 ">
-                    <label className="label">
+                        <label className="label">
                             <span className="label-text">Select Item</span>
                         </label>
                         <select className="select select-bordered w-full" name="select">

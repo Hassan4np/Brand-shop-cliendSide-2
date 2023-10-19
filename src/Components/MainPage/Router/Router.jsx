@@ -9,6 +9,10 @@ import AddProduct from "../Pages/AddProduct";
 import MyCard from "../Pages/MyCard";
 import { AddProductRepo } from "../PrivateRepo/AddProductRepo";
 import { MycardPepo } from "../PrivateRepo/MycardPepo";
+import AllBrandProduct from "../Pages/AllBrandProduct";
+import ProductDetails from "../Pages/ProductDetails";
+import { ProductdetailsPero } from "../PrivateRepo/ProductdetailsPero";
+import Update from "../Pages/Update";
 
 
   const MyBrowser = createBrowserRouter([
@@ -18,7 +22,7 @@ import { MycardPepo } from "../PrivateRepo/MycardPepo";
       errorElement:<Error></Error>,
       children:[
         {
-            path:'/',
+            path:"/",
             element:<Home></Home>,
             loader:()=>fetch('./category.json'),
         },
@@ -37,6 +41,22 @@ import { MycardPepo } from "../PrivateRepo/MycardPepo";
         {
           path:'/mycard',
           element:<MycardPepo><MyCard></MyCard></MycardPepo>,
+          loader:()=>fetch('http://localhost:5000/cards')
+        },
+        {
+          path:'/products/:Brand',
+          element:<AllBrandProduct></AllBrandProduct>,
+          loader:({params})=>fetch(`http://localhost:5000/products/${params.Brand}`)
+        },
+        {
+          path:'/product/:id',
+          element:<ProductdetailsPero><ProductDetails></ProductDetails></ProductdetailsPero>,
+          loader:()=>fetch('http://localhost:5000/products')
+        },
+        {
+          path:'/update/:id',
+          element:<Update></Update>,
+          loader:()=>fetch('http://localhost:5000/products')
         }
         
       ]
