@@ -102,11 +102,13 @@ const AddProduct = () => {
                             <span className="label-text">Select Item</span>
                         </label>
                         <select className="select select-bordered w-full" name="select">
-                            {/* <option selected>Who shot first?</option> */}
-                            <option>Phon</option>
-                            <option>Laptob</option>
+                            <option selected>Select Product</option>
+                            <option>Phone</option>
+                            <option>Watch</option>
                             <option>Headphone</option>
-                            <option>Proccse</option>
+                            <option>Earbard</option>
+                            <option>Other</option>
+
                         </select>
                     </div>
                 </div>

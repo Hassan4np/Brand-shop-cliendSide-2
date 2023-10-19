@@ -13,6 +13,7 @@ import AllBrandProduct from "../Pages/AllBrandProduct";
 import ProductDetails from "../Pages/ProductDetails";
 import { ProductdetailsPero } from "../PrivateRepo/ProductdetailsPero";
 import Update from "../Pages/Update";
+import { UpdateRero } from "../PrivateRepo/UpdateRero";
 
 
   const MyBrowser = createBrowserRouter([
@@ -56,7 +57,7 @@ import Update from "../Pages/Update";
         },
         {
           path:'/update/:id',
-          element:<Update></Update>,
+          element:<UpdateRero><Update></Update></UpdateRero>,
           loader:({params})=>fetch(`http://localhost:5000/products/${params.id}`)
         }
         

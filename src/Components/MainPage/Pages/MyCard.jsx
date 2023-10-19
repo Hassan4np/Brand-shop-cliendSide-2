@@ -17,7 +17,7 @@ const MyCard = () => {
     useEffect(() => {
         const itmes = data?.filter(item => item.email === emails);
         setcarditem(itmes)
-    }, [emails])
+    }, [emails,data])
     // console.log(carditem)
     console.log(carditem)
 
