@@ -46,17 +46,18 @@ import Update from "../Pages/Update";
         {
           path:'/products/:Brand',
           element:<AllBrandProduct></AllBrandProduct>,
-          loader:({params})=>fetch(`http://localhost:5000/products/${params.Brand}`)
+          loader:()=>fetch('http://localhost:5000/products')
         },
         {
           path:'/product/:id',
           element:<ProductdetailsPero><ProductDetails></ProductDetails></ProductdetailsPero>,
-          loader:()=>fetch('http://localhost:5000/products')
+          // loader:()=>fetch('http://localhost:5000/products')
+          loader:({params})=>fetch(`http://localhost:5000/products/${params.id}`)
         },
         {
           path:'/update/:id',
           element:<Update></Update>,
-          loader:()=>fetch('http://localhost:5000/products')
+          loader:({params})=>fetch(`http://localhost:5000/products/${params.id}`)
         }
         
       ]

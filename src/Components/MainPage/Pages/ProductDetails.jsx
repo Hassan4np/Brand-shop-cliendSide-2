@@ -1,21 +1,12 @@
-import { useContext, useEffect, useState } from "react";
-import { useLoaderData, useParams } from "react-router-dom";
+import { useContext,  } from "react";
+import { useLoaderData, } from "react-router-dom";
 import Swal from "sweetalert2";
 import { AuthContext } from "../AuthProivder/AuthProvider";
 
 
 const ProductDetails = () => {
-    const { id } = useParams()
-    const alldata = useLoaderData();
-    const [onproduct, setonporduct] = useState({});
+    const onproduct = useLoaderData();
     const {user} = useContext(AuthContext);
-    console.log(user.email)
-
-    useEffect(() => {
-        const product = alldata?.find(data => data._id === id);
-        setonporduct(product)
-    }, [id, alldata])
-    console.log(onproduct)
 
     const hendlecardproduct=()=>{
         const photo = onproduct.photo;
@@ -60,8 +51,8 @@ const ProductDetails = () => {
                     <h2 className="card-title">{onproduct?.Brand}</h2>
                     <h2 className="card-title"> Price ${onproduct?.Price}</h2>
                     <h2 className="card-title">{onproduct?.categoryitem}</h2>
-                    <p>{onproduct.description}</p>
-                    <p>{onproduct.rating}</p>
+                    <p>{onproduct?.description}</p>
+                    <p>{onproduct?.rating}</p>
                     <div className="card-actions ">
                         <button className="btn btn-primary" onClick={hendlecardproduct}>Add to Card</button>
                     </div>

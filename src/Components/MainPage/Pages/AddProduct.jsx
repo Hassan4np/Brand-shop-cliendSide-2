@@ -118,7 +118,7 @@ const AddProduct = () => {
                         <input type="text" placeholder="Photo url" name="photo" className="input input-bordered w-full" />
                     </label>
                 </div>
-                <input type="submit" value="Add Cofffees" className="w-full mt-5 btn btn-success" />
+                <input type="submit" value="Add Product" className="w-full mt-5 btn btn-success" />
             </div>
         </form>
     );
