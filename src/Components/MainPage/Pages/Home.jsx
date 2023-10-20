@@ -7,7 +7,6 @@ import MarketPlaseNews from './MarketPlaseNews';
 
 const Home = () => {
     const categorydata = useLoaderData();
-    console.log(categorydata)
     return (
         <div>
             <Bannar></Bannar>

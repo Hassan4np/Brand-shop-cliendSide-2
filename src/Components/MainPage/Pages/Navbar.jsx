@@ -1,23 +1,25 @@
-import { NavLink } from "react-router-dom";
+import { NavLink ,Link} from "react-router-dom";
 import logo from './../../../assets/logo.jpg'
 import { useContext } from "react";
 import { AuthContext } from "../AuthProivder/AuthProvider";
-
-const Navbar = () => {
-    const { user,UserLogout } = useContext(AuthContext);
+import { MdDarkMode,MdOutlineDarkMode } from 'react-icons/md';
+const Navbar = ({ dark ,isdark}) => {
+    const { user, UserLogout } = useContext(AuthContext);
     const links = <>
         <NavLink to='/' className='mr-2 btn btn-sm '><li>Home</li></NavLink>
         <NavLink to='/addproduct' className='mr-2  btn btn-sm '><li>Add Product</li></NavLink>
-        <NavLink to='/mycard' className=' btn btn-sm '><li>My Card</li></NavLink>
+    {
+        user &&    <NavLink to={`/cards/${user.email}`} className=' btn btn-sm '><li>My Card</li></NavLink>
+    }
     </>
-    const hendleLogout=()=>{
+    const hendleLogout = () => {
         UserLogout()
-        .then((result)=>{
-            console.log(result)
-        })
-        .catch(error=>{
-            console.log(error)
-        })
+            .then((result) => {
+                console.log(result)
+            })
+            .catch(error => {
+                console.log(error)
+            })
     }
     return (
         <div className="navbar">
@@ -31,6 +33,8 @@ const Navbar = () => {
                     </ul>
                 </div>
                 <img className=" w-12 h-12  md:w-[80px] md:h-[80px] rounded-full" src={logo} alt="img" />
+                <button className="btn btn-sm ml-2 text-2xl " onClick={dark}>{isdark? <MdOutlineDarkMode></MdOutlineDarkMode>:<MdDarkMode></MdDarkMode>}</button>
+
             </div>
             <div className="navbar-center hidden  lg:flex">
                 <ul className="menu menu-horizontal px-1">
@@ -38,6 +42,7 @@ const Navbar = () => {
                 </ul>
             </div>
             <div className="navbar-end">
+              
                 {user && <div className="w-10 mr-1"><img className='rounded-full' src={user?.photoURL} /></div>}
                 {user && <p className='mr-1'>{user?.displayName}</p>}
                 {

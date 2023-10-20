@@ -40,25 +40,26 @@ import { UpdateRero } from "../PrivateRepo/UpdateRero";
           element:<AddProductRepo><AddProduct></AddProduct></AddProductRepo>,
         },
         {
-          path:'/mycard',
+          path:'/cards/:email',
           element:<MycardPepo><MyCard></MyCard></MycardPepo>,
-          loader:()=>fetch('http://localhost:5000/cards')
+          // loader:()=>fetch(' https://brand-shop-bankend-msih1fu56-hassan-alis-projects-8630df6d.vercel.app/cards')
+          loader:({params})=>fetch(` https://brand-shop-bankend-msih1fu56-hassan-alis-projects-8630df6d.vercel.app/cards/${params.email}`)
         },
         {
           path:'/products/:Brand',
           element:<AllBrandProduct></AllBrandProduct>,
-          loader:()=>fetch('http://localhost:5000/products')
+          loader:()=>fetch(' https://brand-shop-bankend-msih1fu56-hassan-alis-projects-8630df6d.vercel.app/products')
         },
         {
           path:'/product/:id',
           element:<ProductdetailsPero><ProductDetails></ProductDetails></ProductdetailsPero>,
-          // loader:()=>fetch('http://localhost:5000/products')
-          loader:({params})=>fetch(`http://localhost:5000/products/${params.id}`)
+          // loader:()=>fetch(' https://brand-shop-bankend-msih1fu56-hassan-alis-projects-8630df6d.vercel.app/products')
+          loader:({params})=>fetch(` https://brand-shop-bankend-msih1fu56-hassan-alis-projects-8630df6d.vercel.app/products/${params.id}`)
         },
         {
           path:'/update/:id',
           element:<UpdateRero><Update></Update></UpdateRero>,
-          loader:({params})=>fetch(`http://localhost:5000/products/${params.id}`)
+          loader:({params})=>fetch(` https://brand-shop-bankend-msih1fu56-hassan-alis-projects-8630df6d.vercel.app/products/${params.id}`)
         }
         
       ]

@@ -15,8 +15,7 @@ const AddProduct = () => {
         const Productdetails = {
             name, Brand, Price, description, rating, categoryitem, photo
         }
-        console.log(Productdetails)
-        fetch('http://localhost:5000/products', {
+        fetch(' https://brand-shop-bankend-msih1fu56-hassan-alis-projects-8630df6d.vercel.app/products', {
             method: 'POST',
             headers: {
                 'content-Type': 'application/json',
@@ -39,6 +38,7 @@ const AddProduct = () => {
 
 
             })
+
 
     }
     return (

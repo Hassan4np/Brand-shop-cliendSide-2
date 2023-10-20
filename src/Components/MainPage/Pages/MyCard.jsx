@@ -8,45 +8,46 @@ import { setItem } from "localforage";
 
 const MyCard = () => {
     const { user } = useContext(AuthContext);
-    const emails = user.email;
     const data = useLoaderData();
-    const [carditem, setcarditem] = useState([]);
+    const [carditem, setcarditem] = useState(data);
 
 
 
-    useEffect(() => {
-        const itmes = data?.filter(item => item.email === emails);
-        setcarditem(itmes)
-    }, [emails,data])
+    // useEffect(() => {
+    //     const itmes = data?.filter(item => item.email === emails);
+    //     setcarditem(itmes)
+    // }, [emails, data])
+    // // console.log(carditem)
     // console.log(carditem)
-    console.log(carditem)
 
     const hendledelete = (id) => {
         console.log(id);
-        fetch(`http://localhost:5000/cards/${id}`, {
+        fetch(` https://brand-shop-bankend-msih1fu56-hassan-alis-projects-8630df6d.vercel.app/cards/${id}`, {
 
             method: 'DELETE',
         })
             .then(res => res.json())
             .then(data => {
                 console.log(data)
-                if (data.deletedCount > 0) {
+                if (data.deletedCount === 1) {
+
                     Swal.fire({
                         position: 'top-center',
                         icon: 'success',
-                        title: 'Your work has been saved',
+                        title: 'Your prodect',
                         showConfirmButton: false,
                         timer: 1500
                     })
                 }
+
                 const remaildata = carditem.filter(card => card._id !== id);
-                setItem(remaildata)
+                setcarditem(remaildata)
 
 
             })
     }
     return (
-        <div>
+        <div className="min-h-450px[]">
             <div className="overflow-x-auto min-h-[450px]">
                 <table className="table">
                     {/* head */}

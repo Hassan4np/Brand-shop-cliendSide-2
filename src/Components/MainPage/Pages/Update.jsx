@@ -20,7 +20,7 @@ const Update = () => {
             name, Brand, Price, description, rating, categoryitem, photo
         }
         console.log(Productdetails)
-        fetch(`http://localhost:5000/products/${_id}`, {
+        fetch(` https://brand-shop-bankend-msih1fu56-hassan-alis-projects-8630df6d.vercel.app/products/${_id}`, {
             method: 'PUT',
             headers: {
                 'content-Type': 'application/json',

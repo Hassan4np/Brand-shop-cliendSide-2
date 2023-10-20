@@ -20,7 +20,7 @@ const ProductDetails = () => {
         console.log(name)
         const productinfo = { photo, name, price, categoryitem, des, rating, brand, email };
         console.log(productinfo)
-        fetch(`http://localhost:5000/cards`, {
+        fetch(` https://brand-shop-bankend-msih1fu56-hassan-alis-projects-8630df6d.vercel.app/cards`, {
             method: 'POST',
             headers: {
                 'content-Type': 'application/json',
