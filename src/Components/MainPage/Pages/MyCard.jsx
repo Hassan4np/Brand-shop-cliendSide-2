@@ -22,7 +22,7 @@ const MyCard = () => {
 
     const hendledelete = (id) => {
         console.log(id);
-        fetch(` https://brand-shop-bankend-msih1fu56-hassan-alis-projects-8630df6d.vercel.app/cards/${id}`, {
+        fetch(` https://brand-shop-bankend-ceevlci3v-hassan-alis-projects-8630df6d.vercel.app/cards/${id}`, {
 
             method: 'DELETE',
         })

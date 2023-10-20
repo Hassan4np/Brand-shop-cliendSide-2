@@ -20,7 +20,7 @@ const ProductDetails = () => {
         console.log(name)
         const productinfo = { photo, name, price, categoryitem, des, rating, brand, email };
         console.log(productinfo)
-        fetch(` https://brand-shop-bankend-msih1fu56-hassan-alis-projects-8630df6d.vercel.app/cards`, {
+        fetch(` https://brand-shop-bankend-ceevlci3v-hassan-alis-projects-8630df6d.vercel.app/cards`, {
             method: 'POST',
             headers: {
                 'content-Type': 'application/json',
@@ -54,7 +54,7 @@ const ProductDetails = () => {
                     <h2 className="card-title"> Price: ${onproduct?.Price}</h2>
                     <h2 className="card-title">Category: {onproduct?.categoryitem}</h2>
                     <p className="text-gray-500"> {onproduct?.description}</p>
-                    <p className="text-gray-600 font-bold">{onproduct?.rating}/5</p>
+                    <p className="text-gray-600 font-bold text-md">Rating: {onproduct?.rating}/5</p>
                     <div className="card-actions ">
                         <button className="btn btn-success" onClick={hendlecardproduct}>Add to Card</button>
                     </div>

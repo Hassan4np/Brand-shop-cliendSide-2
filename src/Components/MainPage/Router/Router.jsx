@@ -42,24 +42,24 @@ import { UpdateRero } from "../PrivateRepo/UpdateRero";
         {
           path:'/cards/:email',
           element:<MycardPepo><MyCard></MyCard></MycardPepo>,
-          // loader:()=>fetch(' https://brand-shop-bankend-msih1fu56-hassan-alis-projects-8630df6d.vercel.app/cards')
-          loader:({params})=>fetch(` https://brand-shop-bankend-msih1fu56-hassan-alis-projects-8630df6d.vercel.app/cards/${params.email}`)
+          // loader:()=>fetch(' https://brand-shop-bankend-ceevlci3v-hassan-alis-projects-8630df6d.vercel.app/cards')
+          loader:({params})=>fetch(` https://brand-shop-bankend-ceevlci3v-hassan-alis-projects-8630df6d.vercel.app/cards/${params.email}`)
         },
         {
           path:'/products/:Brand',
           element:<AllBrandProduct></AllBrandProduct>,
-          loader:()=>fetch(' https://brand-shop-bankend-msih1fu56-hassan-alis-projects-8630df6d.vercel.app/products')
+          loader:({params})=>fetch(`https://brand-shop-bankend-ceevlci3v-hassan-alis-projects-8630df6d.vercel.app/products/${params.Brand}`)
         },
         {
-          path:'/product/:id',
+          path:'/product/Brand/:id',
           element:<ProductdetailsPero><ProductDetails></ProductDetails></ProductdetailsPero>,
-          // loader:()=>fetch(' https://brand-shop-bankend-msih1fu56-hassan-alis-projects-8630df6d.vercel.app/products')
-          loader:({params})=>fetch(` https://brand-shop-bankend-msih1fu56-hassan-alis-projects-8630df6d.vercel.app/products/${params.id}`)
+          // loader:()=>fetch(' https://brand-shop-bankend-ceevlci3v-hassan-alis-projects-8630df6d.vercel.app/products')
+          loader:({params})=>fetch(` https://brand-shop-bankend-ceevlci3v-hassan-alis-projects-8630df6d.vercel.app/products/Brand/${params.id}`)
         },
         {
-          path:'/update/:id',
+          path:'/update/Brand/:id',
           element:<UpdateRero><Update></Update></UpdateRero>,
-          loader:({params})=>fetch(` https://brand-shop-bankend-msih1fu56-hassan-alis-projects-8630df6d.vercel.app/products/${params.id}`)
+          loader:({params})=>fetch(` https://brand-shop-bankend-ceevlci3v-hassan-alis-projects-8630df6d.vercel.app/products/Brand/${params.id}`)
         }
         
       ]

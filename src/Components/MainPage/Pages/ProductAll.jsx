@@ -46,11 +46,11 @@ const ProductAll = ({ proscts }) => {
                     </div>
                 </div>
                 <div className="flex justify-center gap-5 py-3 mt-5">
-                    <Link to={`/Product/${_id}`}><button
+                    <Link to={`/Product/Brand/${_id}`}><button
                         className="block btn btn-success w-full select-none rounded-lg bg-blue-gray-900/10 py-3 px-6 text-center align-middle font-sans text-xs font-bold uppercase text-blue-gray-900 transition-all hover:scale-105 focus:scale-105 focus:opacity-[0.85] active:scale-100 active:opacity-[0.85] disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none"type="button">
                              Details
                     </button></Link>
-                    <Link to={`/update/${_id}`}><button
+                    <Link to={`/update/Brand/${_id}`}><button
                         className="block btn btn-secondary w-full select-none rounded-lg bg-blue-gray-900/10 py-3 px-6 text-center align-middle font-sans text-xs font-bold uppercase text-blue-gray-900 transition-all hover:scale-105 focus:scale-105 focus:opacity-[0.85] active:scale-100 active:opacity-[0.85] disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none"type="button">
                              Update
                     </button></Link>
