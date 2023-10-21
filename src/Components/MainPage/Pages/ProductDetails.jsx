@@ -2,7 +2,7 @@ import { useContext, } from "react";
 import { useLoaderData, } from "react-router-dom";
 import Swal from "sweetalert2";
 import { AuthContext } from "../AuthProivder/AuthProvider";
-
+import { Rating } from 'primereact/rating';
 
 const ProductDetails = () => {
     const onproduct = useLoaderData();
@@ -54,7 +54,9 @@ const ProductDetails = () => {
                     <h2 className="card-title"> Price: ${onproduct?.Price}</h2>
                     <h2 className="card-title">Category: {onproduct?.categoryitem}</h2>
                     <p className="text-gray-500"> {onproduct?.description}</p>
-                    <p className="text-gray-600 font-bold text-md">Rating: {onproduct?.rating}/5</p>
+                    <div className="card flex justify-content-center mb-3">
+                        <Rating value={`${onproduct.rating}`} readOnly cancel={false} />
+                    </div>
                     <div className="card-actions ">
                         <button className="btn btn-success" onClick={hendlecardproduct}>Add to Card</button>
                     </div>
