@@ -1,8 +1,26 @@
- Out webside Features:</br></br>
- 1.Our product is best in to market.</br>
- 2.Our company very chep rate sell Product.</br>
- 3.Our product 1 year garandt.</br>
- 4.Our support section 24 hour.</br>
- 5.We are sell Brand Products like google,apple,sonny ,Sumsuns and ect</br></br>
+  
+  #### WebSide Live Link: https://dinamic-password-react-project.web.app/
+  #### server link: https://github.com/Hassan4np/Brand-shop-bankend-1
 
- WebSide Live Link:- https://dinamic-password-react-project.web.app/
+## Projects Details
+ 
+### Projects Nmae :  Brand shop
+ ####  Projects Features : -
+- User can buy Brand shop Products.
+- User add cart.
+- Various Brand Products.
+- User can Add Products
+
+#### Projects  Technologies :
+- React.js
+- mongodb,
+- node.js
+- react router.
+- jwt token
+- Axios
+- TanStack query.
+- React library
+- components
+- react icone
+
+
